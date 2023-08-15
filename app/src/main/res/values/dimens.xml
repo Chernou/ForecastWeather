@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="card_margin">8dp</dimen>
+    <dimen name="card_margin">4dp</dimen>
     <dimen name="icon_size">64dp</dimen>
     <dimen name="card_padding">8dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="card_view_rounded_corners">8dp</dimen>
 </resources>

@@ -1,24 +1,25 @@
 package com.example.weatherforecast.data.dto
 
+import com.google.gson.annotations.SerializedName
+
 data class ForecastResponse(val forecast: Forecast) : Response()
 
 data class Forecast(
-    val forecastday: List<ForecastDay>
+    @SerializedName("forecastday") val forecastDay: List<ForecastDay>
 )
 
 data class ForecastDay(
-    val day: Day,
+    val day: ForecastDailyDto,
 )
 
-data class Day(
-    val avghumidity: Int,
-    val avgtemp_c: Double,
+data class ForecastDailyDto(
+    @SerializedName("avghumidity") val humidity: Int,
+    @SerializedName("avgtemp_c") val averageTemp: Double,
     val condition: Condition,
-    val maxwind_kph: Double,
+    @SerializedName("maxwind_kph") val windSpeed: Double,
 )
 
 data class Condition(
-    val code: Int,
     val icon: String,
     val text: String
 )

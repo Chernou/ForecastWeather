@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">WeatherForecast</string>
     <string name="server_error">Ошибка сервера</string>
+    <string name="city_name">Прогноз погоды в Москве</string>
 </resources>

@@ -1,9 +1,10 @@
 package com.example.weatherforecast.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherforecast.R
@@ -21,7 +22,7 @@ class ForecastActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.forecast_main)
+        setContentView(R.layout.forecast_activity)
         errorTextView = findViewById(R.id.error_text_view)
         forecastRecyclerView = findViewById<RecyclerView?>(R.id.forecast_recycler_view).apply {
             adapter = forecastAdapter
@@ -34,7 +35,7 @@ class ForecastActivity : AppCompatActivity() {
     }
 
     private fun render(state: ForecastState) {
-        when(state) {
+        when (state) {
             is ForecastState.DisplayForecast -> displayForecast(state.forecastDailyList)
             is ForecastState.ErrorState -> displayError(state.errorText)
         }
@@ -43,6 +44,7 @@ class ForecastActivity : AppCompatActivity() {
     private fun displayForecast(forecastDailyList: List<ForecastDaily>) {
         errorTextView.visibility = View.GONE
         forecastRecyclerView.visibility = View.VISIBLE
+        Log.d("!@#", forecastDailyList.get(0).conditionIconUri)
         forecastAdapter.forecastDailyList.apply {
             clear()
             addAll(forecastDailyList)
@@ -52,7 +54,7 @@ class ForecastActivity : AppCompatActivity() {
 
     private fun displayError(errorText: String) {
         forecastRecyclerView.visibility = View.GONE
-        errorTextView.apply{
+        errorTextView.apply {
             visibility = View.VISIBLE
             text = errorText
         }

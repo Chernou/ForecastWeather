@@ -1,10 +1,10 @@
 package com.example.weatherforecast.data.impl
 
 import com.example.weatherforecast.R
-import com.example.weatherforecast.data.network.NetworkClient
 import com.example.weatherforecast.data.converter.ForecastConverter
 import com.example.weatherforecast.data.dto.ForecastRequest
 import com.example.weatherforecast.data.dto.ForecastResponse
+import com.example.weatherforecast.data.network.NetworkClient
 import com.example.weatherforecast.domain.api.ForecastRepository
 import com.example.weatherforecast.domain.model.ForecastDaily
 import com.example.weatherforecast.utils.Resource
@@ -27,7 +27,7 @@ class ForecastRepositoryImpl(
         val response = networkClient.doRequest(weatherRequest)
         when (response.resultCode) {
             SUCCESSFUL_REQUEST -> {
-                emit(Resource.Success((response as ForecastResponse).forecast.forecastday.map {
+                emit(Resource.Success((response as ForecastResponse).forecast.forecastDay.map {
                     forecastConverter.map(it.day)
                 }))
             }

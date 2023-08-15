@@ -16,9 +16,10 @@ class RetrofitNetworkClient(
         }
         return withContext(Dispatchers.IO) {
             try {
-                val response = forecastService.getForecast(dto.location)
+                val response = forecastService.getForecast(dto.location, API_KEY, DAYS, LANG)
                 response.apply { resultCode = SUCCESSFUL_REQUEST }
             } catch (e: Throwable) {
+                Log.d("!@#", e.message!!)
                 Response().apply { resultCode = SERVER_ERROR }
             }
         }
@@ -30,5 +31,8 @@ class RetrofitNetworkClient(
         const val SERVER_ERROR = 500
         const val SUCCESSFUL_REQUEST = 200
         const val NO_CONNECTIVITY_ERROR = -1
+        const val API_KEY = "7ac14304e0aa4358b2000924231508"
+        const val DAYS = 5
+        const val LANG = "ru"
     }
 }

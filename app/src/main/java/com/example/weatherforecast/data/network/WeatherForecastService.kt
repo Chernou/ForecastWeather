@@ -2,16 +2,14 @@ package com.example.weatherforecast.data.network
 
 import com.example.weatherforecast.data.dto.ForecastResponse
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface WeatherForecastService {
-
-    @GET("forecast.json?q={location}&days=5&lang=ru&key=$API_KEY")
+    @GET("forecast.json")
     suspend fun getForecast(
-        @Path("location") location: String
+        @Query("q") location: String,
+        @Query("key") key: String,
+        @Query("days") days: Int,
+        @Query("lang") language: String
     ): ForecastResponse
-
-    companion object {
-        private const val API_KEY = "8613b0cad45a4c3b85f114827231408"
-    }
 }

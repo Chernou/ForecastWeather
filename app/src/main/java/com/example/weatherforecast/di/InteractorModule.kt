@@ -5,9 +5,7 @@ import com.example.weatherforecast.domain.impl.ForecastInteractorImpl
 import org.koin.dsl.module
 
 val interactorModule = module {
-
     single<ForecastInteractor> {
         ForecastInteractorImpl(get())
     }
-
 }

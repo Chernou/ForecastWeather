@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_light_white_night">@color/white</color>
+    <color name="white_light_black_night">@color/black</color>
+    <color name="background">#1A1B22</color>
+</resources>

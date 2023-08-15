@@ -19,11 +19,11 @@ class ForecastViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(forecastDaily: ForecastDaily) {
         conditionText.text = forecastDaily.conditionText
-        temperature.text = forecastDaily.averageTemp.toString()
-        windSpeed.text = TextUtils.getPercentageString(forecastDaily.windSpeed)
-        humidity.text = TextUtils.getCelsiusString(forecastDaily.humidity)
+        temperature.text = TextUtils.getCelsiusString(forecastDaily.averageTemp)
+        windSpeed.text = TextUtils.getKmPerHourString(forecastDaily.windSpeed)
+        humidity.text = TextUtils.getPercentageString(forecastDaily.humidity)
         Glide.with(conditionImage)
-            .load(forecastDaily.conditionIconUri)
+            .load(TextUtils.addHttps(forecastDaily.conditionIconUri))
             .fitCenter()
             .placeholder(R.drawable.ic_placeholder)
             .into(conditionImage)
