@@ -1,6 +1,5 @@
 package com.example.weatherforecast.data.network
 
-import android.util.Log
 import com.example.weatherforecast.data.dto.ForecastRequest
 import com.example.weatherforecast.data.dto.Response
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +18,6 @@ class RetrofitNetworkClient(
                 val response = forecastService.getForecast(dto.location, API_KEY, DAYS, LANG)
                 response.apply { resultCode = SUCCESSFUL_REQUEST }
             } catch (e: Throwable) {
-                Log.d("!@#", e.message!!)
                 Response().apply { resultCode = SERVER_ERROR }
             }
         }

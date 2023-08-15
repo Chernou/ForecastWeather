@@ -1,7 +1,6 @@
 package com.example.weatherforecast.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -44,7 +43,6 @@ class ForecastActivity : AppCompatActivity() {
     private fun displayForecast(forecastDailyList: List<ForecastDaily>) {
         errorTextView.visibility = View.GONE
         forecastRecyclerView.visibility = View.VISIBLE
-        Log.d("!@#", forecastDailyList.get(0).conditionIconUri)
         forecastAdapter.forecastDailyList.apply {
             clear()
             addAll(forecastDailyList)

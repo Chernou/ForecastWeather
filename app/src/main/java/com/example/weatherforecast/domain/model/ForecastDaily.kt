@@ -6,4 +6,5 @@ data class ForecastDaily(
     val averageTemp: Double,
     val windSpeed: Double,
     val humidity: Int,
+    val date: String
 )

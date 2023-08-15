@@ -16,7 +16,7 @@ class ForecastAdapter : RecyclerView.Adapter<ForecastViewHolder>() {
         )
 
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) {
-        holder.bind(forecastDailyList[position])
+        holder.bind(position, forecastDailyList[position])
     }
 
     override fun getItemCount(): Int = forecastDailyList.size

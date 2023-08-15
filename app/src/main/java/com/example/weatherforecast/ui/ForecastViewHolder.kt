@@ -15,9 +15,10 @@ class ForecastViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val temperature = itemView.findViewById<TextView>(R.id.temperature)
     private val windSpeed = itemView.findViewById<TextView>(R.id.wind_speed)
     private val humidity = itemView.findViewById<TextView>(R.id.humidity)
+    private val date = itemView.findViewById<TextView>(R.id.date)
     private val conditionImage = itemView.findViewById<ImageView>(R.id.condition_icon)
 
-    fun bind(forecastDaily: ForecastDaily) {
+    fun bind(position: Int, forecastDaily: ForecastDaily) {
         conditionText.text = forecastDaily.conditionText
         temperature.text = TextUtils.getCelsiusString(forecastDaily.averageTemp)
         windSpeed.text = TextUtils.getKmPerHourString(forecastDaily.windSpeed)
@@ -27,5 +28,10 @@ class ForecastViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .fitCenter()
             .placeholder(R.drawable.ic_placeholder)
             .into(conditionImage)
+        date.text = when (position) {
+            0 -> date.context.getString(R.string.today)
+            1 -> date.context.getString(R.string.tomorrow)
+            else -> TextUtils.getDate(forecastDaily.date)
+        }
     }
 }

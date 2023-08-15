@@ -3,4 +3,6 @@
     <string name="server_error">Ошибка сервера</string>
     <string name="city_name">Прогноз погоды в Москве</string>
     <string name="check_internet_connection">Проверьте соединение с интернетом</string>
+    <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
 </resources>

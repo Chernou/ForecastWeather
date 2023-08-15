@@ -28,7 +28,7 @@ class ForecastRepositoryImpl(
         when (response.resultCode) {
             SUCCESSFUL_REQUEST -> {
                 emit(Resource.Success((response as ForecastResponse).forecast.forecastDay.map {
-                    forecastConverter.map(it.day)
+                    forecastConverter.map(it)
                 }))
             }
 
