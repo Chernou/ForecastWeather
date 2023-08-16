@@ -24,7 +24,7 @@ class ForecastViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         windSpeed.text = TextUtils.getKmPerHourString(forecastDaily.windSpeed)
         humidity.text = TextUtils.getPercentageString(forecastDaily.humidity)
         Glide.with(conditionImage)
-            .load(TextUtils.addHttps(forecastDaily.conditionIconUri))
+            .load(forecastDaily.conditionIconUri)
             .fitCenter()
             .placeholder(R.drawable.ic_placeholder)
             .into(conditionImage)
